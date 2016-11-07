@@ -32,7 +32,8 @@ void borrarEspacios(std::ifstream& file, std::ofstream& fileNoSpaces)
     while(getline(file, renglon))
         {
              std::cout << renglon << std::endl;
-             std::remove_if(renglon.begin(), renglon.end(), isspace);
+             if(renglon.front() == '\t')
+                renglon.erase(0, 1);
              fileNoSpaces << renglon;
         }
 }
